@@ -16,7 +16,7 @@ class DCMotor:
 	def set_speed(self, percent):
 		if percent < 0 or percent > 100:
 			return -1
-		self.pi.hardware_pwm(self.pwm_pin, self.freq, percent * 10000)
+		self.pi.hardware_PWM(self.pwm_pin, self.freq, percent * 10000)
 		return 0
 
 

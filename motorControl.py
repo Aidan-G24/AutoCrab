@@ -37,7 +37,7 @@ class Servo:
 		if angle < 0 or angle > 265:
 			return -1
 
-		self.pi.set_servo_pulsewidth(self.pin, (2000//270 * angle) + 500)
+		self.pi.set_servo_pulsewidth(self.pin, (2000/270 * angle) + 500)
 
 		return 0
 

@@ -1,7 +1,7 @@
 
 import time
 import pigpio
-from motorControl.py import DCMotor
+from motorControl import DCMotor
 
 
 motor_pin = 23

@@ -1,6 +1,6 @@
 
 import pigpio
-from motorControl.py import Servo
+from motorControl import Servo
 from time import sleep
 
 servo_pin = 25

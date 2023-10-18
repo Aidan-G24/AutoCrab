@@ -1,39 +1,35 @@
 
 import time
-import lgpio
+import pigpio
+from motorControl.py import DCMotor
 
-motor = 23
-PWM = 18
+
+motor_pin = 23
+pwm_pin = 18
 freq = 10000
 
-# open the gpio chip and set the motor pin as output
-h = lgpio.gpiochip_open(0)
-lgpio.gpio_claim_output(h, motor)
+
+pi = pigpio.pi()
+
+front_left = DCMotor(('front', 'left'), motor_pin, pwm_pin, pi)
 
 try:
     while True:
-        print("Turn On")
-        # Turn the GPIO pin on
-        lgpio.gpio_write(h, motor, 1)
-        lgpio.tx_pwm(h, PWM, freq, 25)
+        front_left.set_speed(50)
+        front_left.set_direction(1)
         time.sleep(5)
 
-        print("Turn Off")
-        # Turn the GPIO pin off
-        lgpio.gpio_write(h, motor, 0)
-        lgpio.tx_pwm(h, PWM, freq, 0)
-        time.sleep(3)
+        front_left.set_speed(0)
+        front_left.set_direction(0)
+        time.sleep(2)
 
-        print("Turn Other Direction")
-        lgpio.tx_pwm(h, PWM, freq, 100)
+        front_left.set_speed(100)
         time.sleep(5)
 
-        print("Turn Off")
-        # Turn the GPIO pin off
-        lgpio.tx_pwm(h, PWM, freq, 0)
-        time.sleep(3)
+        front_left.set_speed(0)
+        time.sleep(2)
 
 except KeyboardInterrupt:
-    lgpio.gpio_write(h, motor, 0)
-    lgpio.tx_pwm(h, PWM, freq, 0)
-    lgpio.gpiochip_close(h)
+    front_left.set_speed(0)
+    front_left.set_direction(0)
+

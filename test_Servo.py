@@ -1,16 +1,21 @@
 
-from gpiozero import Servo
+import pigpio
+from motorControl.py import Servo
 from time import sleep
 
-servo = Servo(25)
+servo_pin = 25
+
+pi = pigpio.pi()
+
+servo = Servo(('front', 'left'), 25, pi)
 
 try:
 	while True:
-		servo.min()
-		sleep(1)
-		servo.mid()
-		sleep(1)
-		servo.max()
-		sleep(1)
+		servo.set_angle(0)
+		sleep(2)
+		servo.mid(90)
+		sleep(2)
+		servo.max(180)
+		sleep(2)
 except KeyboardInterrupt:
-	print("Stop")
+	servo.servo_off()

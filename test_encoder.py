@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
       pos += way
 
-      print("pos={}".format(pos))
+      #print("pos={}".format(pos))
 
    pi = pigpio.pi()
 
@@ -41,6 +41,7 @@ if __name__ == "__main__":
       front_left.set_direction(0)      
       decoder.cancel()
       pi.stop()
+      print(f"pos={pos}")
 
 
    

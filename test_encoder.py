@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
    try:
        while True:
-           front_left.set_speed(25)
+           front_left.set_speed(10)
            front_left.set_direction(1)
            time.sleep(300)
 

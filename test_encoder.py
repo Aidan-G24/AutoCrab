@@ -1,48 +1,46 @@
 
+import pigpio
 import time
-import lgpio
-from gpiozero import RotaryEncoder
-
-motor = 23
-PWM = 18
-freq = 10000
-
-# open the gpio chip and set the motor pin as output
-h = lgpio.gpiochip_open(0)
-lgpio.gpio_claim_output(h, motor)
-
-encoder_pins = [20, 21]
-
-encode = RotaryEncoder(encoder_pins[0], encoder_pins[1])
+from motorControl import Decoder
+from motorControl import DCmotor
 
 
-try:
-    while True:
-        print("Turn On")
-        # Turn the GPIO pin on
-        lgpio.gpio_write(h, motor, 1)
-        lgpio.tx_pwm(h, PWM, freq, 25)
-        time.sleep(5)
-        print("Turn Off")
+if __name__ == "__main__":
 
-        # Turn the GPIO pin off
-        lgpio.gpio_write(h, motor, 0)
-        lgpio.tx_pwm(h, PWM, freq, 0)
-        print("encoder has a value of ", encode.values)	
-        time.sleep(3)
 
-        print("Turn Other Direction")
-        lgpio.tx_pwm(h, PWM, freq, 100)
-        time.sleep(5)
+   pos = 0
 
-        print("Turn Off")
-        # Turn the GPIO pin off
-        lgpio.tx_pwm(h, PWM, freq, 0)
-        print("encoder has a value of ", encode.values)
-        time.sleep(3)
+   encode_pinA, encode_pinB = 7, 8
 
-except KeyboardInterrupt:
-    lgpio.gpio_write(h, motor, 0)
-    lgpio.tx_pwm(h, PWM, freq, 0)
-    lgpio.gpiochip_close(h)
+   def callback(way):
 
+      global pos
+
+      pos += way
+
+      print("pos={}".format(pos))
+
+   pi = pigpio.pi()
+
+   decoder = decoder(pi, encode_pinA, encode_pinB, callback)
+
+   motor_pin = 23
+   pwm_pin = 18
+   freq = 10000
+
+   front_left = DCMotor(('front', 'left'), motor_pin, pwm_pin, pi)
+
+   try:
+       while True:
+           front_left.set_speed(25)
+           front_left.set_direction(1)
+           time.sleep(300)
+
+   except KeyboardInterrupt:
+      front_left.set_speed(0)
+      front_left.set_direction(0)      
+      decoder.cancel()
+      pi.stop()
+
+
+   

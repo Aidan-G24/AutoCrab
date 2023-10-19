@@ -2,7 +2,7 @@
 import pigpio
 import time
 from motorControl import Decoder
-from motorControl import DCmotor
+from motorControl import DCMotor
 
 
 if __name__ == "__main__":

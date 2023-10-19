@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
    pi = pigpio.pi()
 
-   decoder = decoder(pi, encode_pinA, encode_pinB, callback)
+   decoder = Decoder(pi, encode_pinA, encode_pinB, callback)
 
    motor_pin = 23
    pwm_pin = 18

@@ -16,7 +16,9 @@ if __name__ == "__main__":
 
       global pos
 
-      pos += way
+      ticks_360 = 720
+
+      pos += 360/ticks_360
 
       #print("pos={}".format(pos))
 
@@ -31,10 +33,12 @@ if __name__ == "__main__":
    front_left = DCMotor(('front', 'left'), motor_pin, pwm_pin, pi)
 
    try:
-       while True:
-           front_left.set_speed(10)
-           front_left.set_direction(1)
-           time.sleep(300)
+      front_left.set_speed(50)
+      front_left.set_direction(0)
+      while pos < 720:
+         continue
+      front_left.set_speed(0)
+         
 
    except KeyboardInterrupt:
       front_left.set_speed(0)
@@ -43,5 +47,10 @@ if __name__ == "__main__":
       pi.stop()
       print(f"pos={pos}")
 
+   front_left.set_speed(0)
+      front_left.set_direction(0)      
+      decoder.cancel()
+      pi.stop()
+      print(f"pos={pos}")
 
    

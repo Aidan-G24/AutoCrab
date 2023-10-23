@@ -38,19 +38,19 @@ if __name__ == "__main__":
       while pos < 720:
          continue
       front_left.set_speed(0)
-         
+
 
    except KeyboardInterrupt:
       front_left.set_speed(0)
-      front_left.set_direction(0)      
+      front_left.set_direction(0)  
       decoder.cancel()
       pi.stop()
       print(f"pos={pos}")
 
    front_left.set_speed(0)
-      front_left.set_direction(0)      
-      decoder.cancel()
-      pi.stop()
-      print(f"pos={pos}")
+   front_left.set_direction(0)
+   decoder.cancel()
+   pi.stop()
+   print(f"pos={pos}")
 
    

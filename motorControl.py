@@ -223,7 +223,6 @@ class CarControl:
 			self.dir_pin = dir_pin
 			self.pwm_pin = pwm_pin
 			self.pi = pi
-			self.freq = 10000
 
 			if self.pos1 == "left":
 				self.invert = True
@@ -234,7 +233,7 @@ class CarControl:
 		def speed(self, percent):
 			if percent < 0 or percent > 100:
 				raise Exception("Input speed is outside of the range [0, 100]")
-			self.pi.hardware_PWM(self.pwm_pin, self.freq, percent * 10000)
+			self.pi.set_PWM_dutycycle(self.pwm_pin, self.freq, percent/100 * 255)
 
 
 		def forward(self):

@@ -3,11 +3,11 @@ import pigpio
 from motorControl import Servo
 from time import sleep
 
-servo_pin = 25
+servo_pin = 4
 
 pi = pigpio.pi()
 
-servo = Servo(('front', 'left'), 25, pi)
+servo = Servo(('front', 'left'), servo_pin, pi)
 
 try:
 	while True:

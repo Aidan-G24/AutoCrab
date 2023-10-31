@@ -17,7 +17,7 @@ class CarControl:
 
 		self.wheel_orient = "init"			# Options are : "init" "normal" "crab" "fourtyfive"
 		self.car_direction = "init" 		# Options are : "init" "forward" "backward" "left" "right" "clockwise" "counter"
-		self.orient_wheels("normal")
+		# self.orient_wheels("normal")
 
 
 	def init_motors(self, dir_pins, pwm_pins):

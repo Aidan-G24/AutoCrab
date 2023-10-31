@@ -8,7 +8,6 @@ from config import pins
 
 if __name__ == "__main__":
 
-	print(pins)
 	Crab = CarControl(pins)
 
 

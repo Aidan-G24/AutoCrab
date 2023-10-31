@@ -47,7 +47,7 @@ class CarControl:
 
 			self.pos += math.pi * diameter / (ticks_360)
 
-		self.encoder = self.Decoder(enc_pins[0], enc_pins[1], callback, pi)
+		self.encoder = self.Decoder(enc_pins[0], enc_pins[1], callback, self.pi)
 
 
 	def orient_wheels(self, orientation):

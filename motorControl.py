@@ -342,9 +342,9 @@ class CarControl:
 			   ----+         +---------+         +---------+  1
 			"""
 
-				if gpio == self.gpioA:
+			if gpio == self.gpioA:
 			 	self.levA = level
-				else:
+			else:
 			 	self.levB = level;
 
 		if gpio != self.lastGpio: # debounce

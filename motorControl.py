@@ -5,7 +5,7 @@ import math
 
 
 
-class CarControl
+class CarControl:
 	
 	def __init__(self, pins)
 

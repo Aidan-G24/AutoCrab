@@ -129,28 +129,28 @@ class CarControl:
 
 
 		print("Testing the Front Right Servo...")
-		servo_test(front_right_servo)
+		servo_test(self.front_right_servo)
 
 		print("Testing the Front Right DC Motor...")
-		motor_test(front_right_DC)
+		motor_test(self.front_right_DC)
 
 		print("Testing the Front Left Servo...")
-		servo_test(front_left_servo)
+		servo_test(self.front_left_servo)
 
 		print("Testing the Front Left DC Motor...")
-		motor_test(front_left_DC)
+		motor_test(self.front_left_DC)
 
 		print("Testing the Back Right Servo...")
-		servo_test(back_right_servo)
+		servo_test(self.back_right_servo)
 
 		print("Testing the Back Right DC Motor...")
-		motor_test(back_right_DC)
+		motor_test(self.back_right_DC)
 
 		print("Testing the Back Left Servo...")
-		servo_test(back_left_servo)
+		servo_test(self.back_left_servo)
 
 		print("Testing the Back Left DC Motor...")
-		motor_test(back_left_DC)
+		motor_test(self.back_left_DC)
 
 
 	def car_move(self, direction, speed, distance):

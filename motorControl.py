@@ -299,14 +299,12 @@ class CarControl:
 			self.pi.set_servo_pulsewidth(self.pin, 0)
 
 
-
-
 	# Class taken from: https://github.com/joan2937/pigpio/blob/master/EXAMPLES/Python/ROTARY_ENCODER/rotary_encoder.py
 	class Decoder:
 
-	    """Class to decode mechanical rotary encoder pulses."""
+		"""Class to decode mechanical rotary encoder pulses."""
 
-	    def __init__(self, gpioA, gpioB, callback, pi):
+		def __init__(self, gpioA, gpioB, callback, pi):
 			self.pi = pi
 			self.gpioA = gpioA
 			self.gpioB = gpioB

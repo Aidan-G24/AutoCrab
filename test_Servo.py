@@ -3,7 +3,7 @@ import pigpio
 from motorControl import CarControl
 from time import sleep
 
-servo_pin = 4
+servo_pin = 25
 
 pi = pigpio.pi()
 

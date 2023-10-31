@@ -12,6 +12,8 @@ if __name__ == "__main__":
 	print("init complete")
 
 	try:
+
+		# Crab.test_module()
 		time.sleep(60)
 		# Crab.test_module()
 

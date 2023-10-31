@@ -15,7 +15,7 @@ class CarControl:
 		self.init_servos(pins["servo_pins"])
 		self.init_encoder(pins["enc_pins"])
 
-		self.wheel_orient = "init"			# Options are : "init" "normal" "crab" "fourtyfive"
+		self.wheel_orient = None			# Options are : "init" "normal" "crab" "fourtyfive"
 		self.car_direction = "init" 		# Options are : "init" "forward" "backward" "left" "right" "clockwise" "counter"
 		self.orient_wheels("init")
 

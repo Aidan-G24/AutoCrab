@@ -357,11 +357,8 @@ class CarControl:
 				if self.levA == 1:
 					self.callback(-1)
 
-			def cancel(self):
 
-			"""
-			Cancel the rotary encoder decoder.
-			"""
+		def cancel(self):
 
 			self.cbA.cancel()
 			self.cbB.cancel()

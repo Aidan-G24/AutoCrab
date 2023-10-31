@@ -21,4 +21,4 @@ try:
 		servo.angle(180)
 		sleep(5)
 except KeyboardInterrupt:
-	servo.servo_off()
+	servo.off()

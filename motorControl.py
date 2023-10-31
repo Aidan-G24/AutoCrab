@@ -7,7 +7,7 @@ import math
 
 class CarControl:
 	
-	def __init__(self, pins)
+	def __init__(self, pins):
 
 		self.pi = pigpio.pi()
 

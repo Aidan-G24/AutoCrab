@@ -92,6 +92,8 @@ class CarControl:
 			crab()
 		elif orientation == "fourtyfive":
 			fourtyfive()
+		elif orientation == "init":
+			init()
 		else:
 			print("Input orientation not recognized")
 			return 

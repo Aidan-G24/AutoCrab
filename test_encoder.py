@@ -33,22 +33,22 @@ if __name__ == "__main__":
    front_left = DCMotor(('front', 'left'), motor_pin, pwm_pin, pi)
 
    try:
-      front_left.set_speed(50)
-      front_left.set_direction(0)
+      front_left.speed(50)
+      front_left.clockwise()
       while pos < 720:
          continue
       front_left.set_speed(0)
 
 
    except KeyboardInterrupt:
-      front_left.set_speed(0)
-      front_left.set_direction(0)  
+      front_left.speed(0)
+      front_left.clockwise()  
       decoder.cancel()
       pi.stop()
       print(f"pos={pos}")
 
-   front_left.set_speed(0)
-   front_left.set_direction(0)
+   front_left.off()
+   front_left.clockwise()
    decoder.cancel()
    pi.stop()
    print(f"pos={pos}")

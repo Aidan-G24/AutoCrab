@@ -1,13 +1,13 @@
 
 import pigpio
-from motorControl.CarControl import Servo
+from motorControl import CarControl
 from time import sleep
 
 servo_pin = 4
 
 pi = pigpio.pi()
 
-servo = Servo(('front', 'left'), servo_pin, pi)
+servo = CarControl.Servo(('front', 'left'), servo_pin, pi)
 
 try:
 	while True:

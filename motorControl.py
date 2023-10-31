@@ -233,7 +233,7 @@ class CarControl:
 		def speed(self, percent):
 			if percent < 0 or percent > 100:
 				raise Exception("Input speed is outside of the range [0, 100]")
-			self.pi.set_PWM_dutycycle(self.pwm_pin, self.freq, percent/100 * 255)
+			self.pi.set_PWM_dutycycle(self.pwm_pin, percent/100 * 255)
 
 
 		def forward(self):

@@ -86,14 +86,14 @@ class CarControl:
 		if orientation == self.wheel_orient:
 			return
 
-		if oreintation == "normal":
+		if orientation == "normal":
 			normal()
-		elif oreintation == "crab":
+		elif orientation == "crab":
 			crab()
 		elif orientation == "fourtyfive":
 			fourtyfive()
 		else:
-			print("Input oreintation not recognized")
+			print("Input orientation not recognized")
 			return 
 
 		self.wheel_orient = orientation

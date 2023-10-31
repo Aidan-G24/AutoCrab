@@ -22,18 +22,18 @@ class CarControl:
 
 	def init_motors(self, dir_pins, pwm_pins):
 
-		self.front_left_DC = DCMotor(("front", "left"), dir_pins[0], pwm_pins[0], self.pi)
-		self.front_right_DC = DCMotor(("front", "right"), dir_pins[1], pwm_pins[1], self.pi)
-		self.back_left_DC = DCMotor(("back", "left"), dir_pins[2], pwm_pins[2], self.pi)
-		self.back_right_DC = DCMotor(("back", "right"), dir_pins[3], pwm_pins[3], self.pi)
+		self.front_left_DC = self.DCMotor(("front", "left"), dir_pins[0], pwm_pins[0], self.pi)
+		self.front_right_DC = self.DCMotor(("front", "right"), dir_pins[1], pwm_pins[1], self.pi)
+		self.back_left_DC = self.DCMotor(("back", "left"), dir_pins[2], pwm_pins[2], self.pi)
+		self.back_right_DC = self.DCMotor(("back", "right"), dir_pins[3], pwm_pins[3], self.pi)
 
 
 	def init_servos(self, servo_pins):
 
-		self.front_left_servo = Servo(("front", "left"), servo_pins[0], self.pi)
-		self.front_right_servo = Servo(("front", "right"), servo_pins[1], self.pi)
-		self.back_left_servo = Servo(("back", "left"), servo_pins[2], self.pi)
-		self.back_right_servo = Servo(("back", "right"), servo_pins[3], self.pi)
+		self.front_left_servo = self.Servo(("front", "left"), servo_pins[0], self.pi)
+		self.front_right_servo = self.Servo(("front", "right"), servo_pins[1], self.pi)
+		self.back_left_servo = self.Servo(("back", "left"), servo_pins[2], self.pi)
+		self.back_right_servo = self.Servo(("back", "right"), servo_pins[3], self.pi)
 
 
 	def init_encoder(self, enc_pins):
@@ -47,7 +47,7 @@ class CarControl:
 
 			self.pos += math.pi * diameter / (ticks_360)
 
-		self.encoder = Decoder(enc_pins[0], enc_pins[1], callback, pi)
+		self.encoder = self.Decoder(enc_pins[0], enc_pins[1], callback, pi)
 
 
 	def orient_wheels(self, orientation):

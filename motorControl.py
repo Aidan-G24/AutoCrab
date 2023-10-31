@@ -347,15 +347,15 @@ class CarControl:
 			else:
 			 	self.levB = level;
 
-		if gpio != self.lastGpio: # debounce
-			self.lastGpio = gpio
+			if gpio != self.lastGpio: # debounce
+				self.lastGpio = gpio
 
-			if gpio == self.gpioA and level == 1:
-				if self.levB == 1:
-					self.callback(1)
-			elif gpio == self.gpioB and level == 1:
-				if self.levA == 1:
-					self.callback(-1)
+				if gpio == self.gpioA and level == 1:
+					if self.levB == 1:
+						self.callback(1)
+				elif gpio == self.gpioB and level == 1:
+					if self.levA == 1:
+						self.callback(-1)
 
 
 		def cancel(self):

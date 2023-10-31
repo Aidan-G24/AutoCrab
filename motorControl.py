@@ -273,7 +273,7 @@ class CarControl:
 
 
 		def off(self):
-			self.pi.hardware_PWM(self.pwm_pin, 0, 0)
+			self.pi.set_PWM_dutycycle(self.pwm_pin, 0)
 			self.pi.write(self.dir_pin, 0)
 
 

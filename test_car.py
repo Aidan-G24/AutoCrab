@@ -8,7 +8,7 @@ from config import pins
 
 if __name__ == "__main__":
 
-
+	print(pins)
 	Crab = CarControl(pins)
 
 
@@ -18,4 +18,4 @@ if __name__ == "__main__":
 	except KeyboardInterrupt:
 		Crab.car_off()
 
-	
+

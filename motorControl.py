@@ -57,6 +57,8 @@ class CarControl:
 			self.front_left_servo.angle(90)
 			self.back_right_servo.angle(90)
 			self.back_left_servo.angle(0)
+			return
+
 
 		def normal():
 			# set servo angles for forward driving
@@ -64,6 +66,7 @@ class CarControl:
 			self.front_left_servo.angle(0)
 			self.back_right_servo.angle(0)
 			self.back_left_servo.angle(90)
+			return
 
 
 		def fourtyfive():
@@ -72,6 +75,7 @@ class CarControl:
 			self.front_left_servo.angle(45)
 			self.back_right_servo.angle(45)
 			self.back_left_servo.angle(45)
+			return
 
 
 		def init():
@@ -80,11 +84,13 @@ class CarControl:
 			self.front_left_servo.angle(0)
 			self.back_right_servo.angle(0)
 			self.back_left_servo.angle(0)
+			return
 
 
 		if orientation == self.wheel_orient:
+			print("Wheel orient is correct")
 			return
-
+		
 		if orientation == "normal":
 			normal()
 		elif orientation == "crab":
@@ -99,6 +105,7 @@ class CarControl:
 
 		self.wheel_orient = orientation
 
+		print("Wheel orient is correct")
 		return 
 
 
@@ -184,7 +191,7 @@ class CarControl:
 		self.front_right_DC.speed(speed)
 		self.back_left_DC.speed(speed)
 		self.back_right_DC.speed(speed)
-		
+
 		while self.pos < distance:
 			continue
 

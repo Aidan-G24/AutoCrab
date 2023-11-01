@@ -44,7 +44,7 @@ class CarControl:
 		diameter = 97 # mm
 
 		def callback(way):
-
+			print(self.pos)
 			self.pos += math.pi * diameter / (ticks_360)
 
 		self.encoder = self.Decoder(enc_pins[0], enc_pins[1], callback, self.pi)
@@ -166,6 +166,7 @@ class CarControl:
 			raise Exception("invalid input direction to Class: CarControl; Function: car_move")
 
 
+		print("move all motors at once")
 		# set all the motors to turn in the correct direction
 		set_direction = getattr(DCMotor, direction)
 		front_right_DC.set_direction()

@@ -11,6 +11,7 @@ if __name__ == "__main__":
 	print("init complete")
 
 	try:
+		print("Start Move forward")
 		Crab.car_move("forward", 75, 1000)
 		time.sleep(60)
 

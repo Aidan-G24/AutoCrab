@@ -189,16 +189,16 @@ class CarControl:
 
 		self.front_left_DC.speed(speed)
 		self.front_right_DC.speed(speed)
-		self.back_left_DC.speed(speed)
-		self.back_right_DC.speed(speed)
+		# self.back_left_DC.speed(speed)
+		# self.back_right_DC.speed(speed)
 
 		while self.pos < distance:
 			continue
 
 		self.front_left_DC.speed(0)
 		self.front_right_DC.speed(0)
-		self.back_left_DC.speed(0)
-		self.back_right_DC.speed(0)
+		# self.back_left_DC.speed(0)
+		# self.back_right_DC.speed(0)
 
 		print("Successfully reached destination... waiting for next instruction")
 

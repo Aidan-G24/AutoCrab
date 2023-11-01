@@ -108,6 +108,8 @@ class CarControl:
 		print("Begin Testing.")
 
 		def servo_test(servo):
+
+			print(f"now testing: {servo.location[0]} {servo.location[1]} servo.\n With pin: {servo.pin}")
 			time.sleep(time_step)
 			print("90 degrees")
 			servo.angle(90)
@@ -121,6 +123,8 @@ class CarControl:
 
 
 		def motor_test(motor):
+
+			print(f"now testing: {motor.pos0} {motor.pos1} motor.\n With PWM pin: {motor.pwm_pin} and Dir pin: {motor.dir_pin}")
 			time.sleep(1)
 			print("motor forward 1/2 speed")
 			motor.forward()
@@ -136,33 +140,17 @@ class CarControl:
 			motor.off()
 
 
-		print("Testing the Front Right Servo...")
 		servo_test(self.front_left_servo)
-
-		print("Testing the Front Right DC Motor...")
 		motor_test(self.front_left_DC)
-
-		print("Testing the Front Left Servo...")
 		servo_test(self.front_right_servo)
-
-		print("Testing the Front Left DC Motor...")
 		motor_test(self.front_right_DC)
-
-		print("Testing the Back Right Servo...")
 		servo_test(self.back_left_servo)
-
-		print("Testing the Back Right DC Motor...")
 		motor_test(self.back_left_DC)
-
-		print("Testing the Back Left Servo...")
 		servo_test(self.back_right_servo)
-
-		print("Testing the Back Left DC Motor...")
 		motor_test(self.back_right_DC)
 
 
 	def car_move(self, direction, speed, distance):
-
 
 		# set all of the wheels to the correct orientation
 		if direction == "forward" or direction == "backward":

@@ -221,6 +221,16 @@ class CarControl:
 
 		self.pi.stop()
 
+
+	def turn_motors(self):
+
+		self.front_left_DC.forward()
+		self.front_right_DC.forward()
+		self.back_left_DC.forward()
+		self.back_right_DC.forward()
+
+		time.sleep(60)
+
 		
 	class DCMotor:
 

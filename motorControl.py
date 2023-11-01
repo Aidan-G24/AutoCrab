@@ -168,7 +168,7 @@ class CarControl:
 
 		print("move all motors at once")
 		# set all the motors to turn in the correct direction
-		set_direction = getattr(DCMotor, direction)
+		set_direction = getattr(self.DCMotor, direction)
 		front_right_DC.set_direction()
 		front_left_DC.set_direction()
 		back_right_DC.set_direction()

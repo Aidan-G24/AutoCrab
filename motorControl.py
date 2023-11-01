@@ -44,7 +44,6 @@ class CarControl:
 		diameter = 97 # mm
 
 		def callback(way):
-			print(self.pos)
 			self.pos += math.pi * diameter / (ticks_360)
 
 		self.encoder = self.Decoder(enc_pins[0], enc_pins[1], callback, self.pi)
@@ -177,13 +176,13 @@ class CarControl:
 		set_direction = getattr(self.back_right_DC, direction)
 		set_direction()
 
-		self.encoder.pos = 0
+		self.pos = 0
 
 		self.front_left_DC.speed(speed)
 		self.front_right_DC.speed(speed)
 		self.back_left_DC.speed(speed)
 		self.back_right_DC.speed(speed)
-		while self.encoder.pos < distance:
+		while self.pos < distance:
 			continue
 
 		self.front_left_DC.speed(0)

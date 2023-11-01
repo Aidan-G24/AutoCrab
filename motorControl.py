@@ -169,25 +169,25 @@ class CarControl:
 		print("move all motors at once")
 		# set all the motors to turn in the correct direction
 		set_direction = getattr(self.DCMotor, direction)
-		front_right_DC.set_direction()
-		front_left_DC.set_direction()
-		back_right_DC.set_direction()
-		back_left_DC.set_direction()
+		self.front_right_DC.set_direction()
+		self.front_left_DC.set_direction()
+		self.back_right_DC.set_direction()
+		self.back_left_DC.set_direction()
 
 
 		self.encoder.pos = 0
 
-		front_right_DC.speed(speed)
-		front_left_DC.speed(speed)
-		back_right_DC.speed(speed)
-		back_left_DC.speed(speed)
+		self.front_right_DC.speed(speed)
+		self.front_left_DC.speed(speed)
+		self.back_right_DC.speed(speed)
+		self.back_left_DC.speed(speed)
 		while self.encoder.pos < distance:
 			continue
 
-		front_right_DC.speed(0)
-		front_left_DC.speed(0)
-		back_right_DC.speed(0)
-		back_left_DC.speed(0)
+		self.front_right_DC.speed(0)
+		self.front_left_DC.speed(0)
+		self.back_right_DC.speed(0)
+		self.back_left_DC.speed(0)
 
 		print("Successfully reached destination... waiting for next instruction")
 

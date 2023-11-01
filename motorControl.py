@@ -109,7 +109,7 @@ class CarControl:
 
 		def servo_test(servo):
 
-			print(f"now testing: {servo.location[0]} {servo.location[1]} servo.\n With pin: {servo.pin}")
+			print(f"now testing: {servo.location[0]} {servo.location[1]} servo.\nWith pin: {servo.pin}")
 			time.sleep(time_step)
 			print("90 degrees")
 			servo.angle(90)

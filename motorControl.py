@@ -154,13 +154,13 @@ class CarControl:
 
 		# set all of the wheels to the correct orientation
 		if direction == "forward" or direction == "backward":
-			self.wheel_orient("normal")
+			self.orient_wheels("normal")
 
 		elif direction == "left" or direction == "right":
-			self.wheel_orient("crab")
+			self.orient_wheels("crab")
 
 		elif direction == "clockwise" or direction == "counter":
-			self.wheel_orient("fourtyfive")
+			self.orient_wheels("fourtyfive")
 
 		else:
 			raise Exception("invalid input direction to Class: CarControl; Function: car_move")

@@ -103,30 +103,36 @@ class CarControl:
 		return 
 
 
-	def test_module(self):
+	def test_module(self, time_step):
 
 		print("Begin Testing.")
 
 		def servo_test(servo):
-			time.sleep(1)
+			time.sleep(time_step)
+			print("90 degrees")
 			servo.angle(90)
-			time.sleep(1)
+			time.sleep(time_step)
+			print("45 degrees")
 			servo.angle(45)
-			time.sleep(1)
+			time.sleep(time_step)
+			print("0 degrees")
 			servo.angle(0)
-			time.sleep(1)
+			time.sleep(time_step)
 
 
 		def motor_test(motor):
 			time.sleep(1)
+			print("motor forward 1/2 speed")
 			motor.forward()
 			motor.speed(50)
-			time.sleep(1)
+			time.sleep(time_step)
+			print("motor off")
 			motor.speed(0)
 			motor.backward()
-			time.sleep(1)
+			time.sleep(time_step)
+			print("motor reverse full speed")
 			motor.speed(100)
-			time.sleep(1)
+			time.sleep(time_step)
 			motor.off()
 
 

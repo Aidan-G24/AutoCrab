@@ -12,10 +12,9 @@ if __name__ == "__main__":
 	print("init complete")
 
 	try:
+		while True:
+			Crab.test_module(2)
 
-		# Crab.test_module()
-		time.sleep(60)
-		# Crab.test_module()
 
 	except KeyboardInterrupt:
 		Crab.car_off()

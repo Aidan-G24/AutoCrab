@@ -103,11 +103,6 @@ class CarControl:
 			print("Input orientation not recognized")
 			return 
 
-		self.front_right_servo.off()
-		self.front_left_servo.off()
-		self.back_right_servo.off()
-		self.back_left_servo.off()
-
 		self.wheel_orient = orientation
 
 		print("Wheel orient is correct")

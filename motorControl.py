@@ -183,7 +183,8 @@ class CarControl:
 		set_direction = getattr(self.back_right_DC, direction)
 		set_direction()
 
-
+		time.sleep(1)
+		print("servos turned correctly")
 		time.sleep(5)
 		print("turn all motors at once")
 
@@ -311,11 +312,11 @@ class CarControl:
 
 		def angle(self, angle):
 			if angle < 0 or angle > 265:
-				return -1
+				raise Exception("Input servo angle incorrect. Input range: [0, 265]")
 
 			self.pi.set_servo_pulsewidth(self.pin, (2000/270 * angle) + 500)
-
-			return 0
+			self.off()
+			
 
 		def off(self):
 			self.pi.set_servo_pulsewidth(self.pin, 0)

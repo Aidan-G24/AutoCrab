@@ -171,8 +171,8 @@ class CarControl:
 		else:
 			raise Exception("invalid input direction to Class: CarControl; Function: car_move")
 
-		time.sleep(1)
-		print("move all motors at once")
+		time.sleep(5)
+		print("set_direction of each motor")
 		# set all the motors to turn in the correct direction
 		set_direction = getattr(self.front_left_DC, direction)
 		set_direction()
@@ -183,7 +183,9 @@ class CarControl:
 		set_direction = getattr(self.back_right_DC, direction)
 		set_direction()
 
-		time.sleep(1)
+
+		time.sleep(5)
+		print("turn all motors at once")
 
 		self.pos = 0
 
@@ -206,10 +208,13 @@ class CarControl:
 	def car_off(self):
 
 		# turn off all pins
-
+		self.front_left_servo.angle(0)
 		self.front_left_servo.off()
+		self.front_right_servo.angle(0)
 		self.front_right_servo.off()
+		self.back_left_servo.angle(0)
 		self.back_left_servo.off()
+		self.back_right_servo.angle(0)
 		self.back_right_servo.off()
 
 		self.front_left_DC.off()

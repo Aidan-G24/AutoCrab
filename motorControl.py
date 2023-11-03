@@ -103,6 +103,11 @@ class CarControl:
 			print("Input orientation not recognized")
 			return 
 
+		self.front_right_servo.off()
+		self.front_left_servo.off()
+		self.back_right_servo.off()
+		self.back_left_servo.off()
+
 		self.wheel_orient = orientation
 
 		print("Wheel orient is correct")
@@ -315,8 +320,7 @@ class CarControl:
 				raise Exception("Input servo angle incorrect. Input range: [0, 265]")
 
 			self.pi.set_servo_pulsewidth(self.pin, (2000/270 * angle) + 500)
-			self.off()
-			
+
 
 		def off(self):
 			self.pi.set_servo_pulsewidth(self.pin, 0)

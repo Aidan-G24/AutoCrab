@@ -18,11 +18,11 @@ if __name__ == "__main__":
 		time.sleep(6)
 		Crab.car_move("backward", 75, 10000)
 		time.sleep(6)
-		crab.car_move("right", 75, 10000)
+		Crab.car_move("right", 75, 10000)
 		time.sleep(6)
-		crab.car_move("clockwise", 75, 10000)
+		Crab.car_move("clockwise", 75, 10000)
 		time.sleep(6)
-		crab.car_move("counter", 75, 10000)
+		Crab.car_move("counter", 75, 10000)
 		Crab.car_off()
 
 	except KeyboardInterrupt:

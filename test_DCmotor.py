@@ -30,6 +30,5 @@ try:
         time.sleep(2)
 
 except KeyboardInterrupt:
-    front_left.set_speed(0)
-    front_left.set_direction(0)
+    front_left.off()
 

@@ -171,8 +171,6 @@ class CarControl:
 		else:
 			raise Exception("invalid input direction to Class: CarControl; Function: car_move")
 
-		time.sleep(5)
-		print("set_direction of each motor")
 		# set all the motors to turn in the correct direction
 		set_direction = getattr(self.front_left_DC, direction)
 		set_direction()
@@ -184,9 +182,6 @@ class CarControl:
 		set_direction()
 
 		time.sleep(1)
-		print("servos turned correctly")
-		time.sleep(5)
-		print("turn all motors at once")
 
 		self.pos = 0
 

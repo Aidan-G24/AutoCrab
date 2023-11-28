@@ -89,14 +89,6 @@ if __name__ == "__main__":
 				print("Invalid input, either input y or n.")
 				continue
 
-			# move car angle back to 0 after movement
-			if grid.angle != 0:
-				if grid.angle < 180:
-					direction = "clockwise"
-				else:
-					direction = "counter"
-
-				crab.rotate(direction, speed, grid.angle)
 
 	except KeyboardInterrupt:
 		crab.car_off()

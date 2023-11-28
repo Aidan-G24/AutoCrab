@@ -57,7 +57,7 @@ if __name__ == "__main__":
 				distance, angle = cmath.polar(rect)
 				# distance = math.sqrt(x_num**2 + y_num**2)
 
-				direction, angle = calculate_angle(grid.angle, angle)
+				direction, angle = calculate_angle(grid.angle, math.degrees(angle))
 
 				print(f"direction: {direction}, angle: {angle}")
 

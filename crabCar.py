@@ -34,15 +34,19 @@ if __name__ == "__main__":
 				printf("TODO")
 
 			elif direct == 'n':
-				if x_num < 0:
+				if x_num == 0:
+					pass
+				elif x_num < 0:
 					direction = "backward"
 				else:
 					direction = "forward"
 
 				crab.car_move(direction, speed, abs(x_num))
 				grid.update_pos(abs(x_num), direction)
-
-				if y_num < 0:
+				
+				if y_num == 0:
+					pass
+				elif y_num < 0:
 					direction = "right"
 				else:
 					direction = "left"

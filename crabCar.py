@@ -36,14 +36,14 @@ if __name__ == "__main__":
 				else:
 					direction = "forward"
 
-				crab.car_move(direction, speed, math.abs(x_num))
+				crab.car_move(direction, speed, abs(x_num))
 
 				if y_num < 0:
 					direction = "right"
 				else:
 					direction = "left"
 				
-				crab.car_move(direction, speed, math.abs(x_num))
+				crab.car_move(direction, speed, abs(x_num))
 
 			else:
 				print("Invalid input, either input y or n.")

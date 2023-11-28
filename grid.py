@@ -37,10 +37,10 @@ class Grid:
 	def update_angle(self, angle, direction):
 
 		if direction == "clockwise":
-			angle_inc = distance / (self.diameter*math.pi) * -360
+			angle_inc = -1 * angle
 
 		elif direction == "counter":
-			angle_inc = distance / (self.diameter*math.pi) * 360
+			angle_inc = angle
 
 		else:
 			raise Exception("invalid input direction to Class: Grid; Method: update_angle")

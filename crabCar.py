@@ -23,7 +23,7 @@ def calculate_angle(cur_angle, desired_angle):
 
 	elif diff >= -180 and diff < 0:
 		direction = "counter"
-		angle = diff
+		angle = abs(diff)
 
 	else:
 		direction = "clockwise"

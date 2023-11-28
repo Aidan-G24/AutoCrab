@@ -208,6 +208,8 @@ class CarControl:
 
 		distance = angle/360 * circum
 
+		print(f"distance: {distance}")
+
 		self.car_move(direction, speed, distance)
 
 		return

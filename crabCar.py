@@ -65,6 +65,7 @@ if __name__ == "__main__":
 				grid.update_angle(angle, direction)
 
 				crab.car_move("forward", speed, distance)
+				grid.update_pos(distance, "forward")
 
 			elif direct == 'n':
 				if x_num == 0:

@@ -47,8 +47,10 @@ if __name__ == "__main__":
 				else:
 					direction = "left"
 				
-				crab.car_move(direction, speed, abs(x_num))
+				crab.car_move(direction, speed, abs(y_num))
 				grid.update_pos(abs(y_num), direction)
+
+				print(f"gird.x: {grid.x}, grid.y: {grid.y}")
 
 			else:
 				print("Invalid input, either input y or n.")

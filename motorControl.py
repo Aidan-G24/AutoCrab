@@ -96,7 +96,7 @@ class CarControl:
 		elif orientation == "crab":
 			crab()
 		elif orientation == "fourtyfive":
-			fourtyfive()
+			crab()
 		elif orientation == "init":
 			init()
 		else:
@@ -199,6 +199,20 @@ class CarControl:
 		self.back_right_DC.speed(0)
 
 		print("Successfully reached destination... waiting for next instruction")
+
+
+	def rotate(self, direction, speed, angle):
+
+		# length of car is 715 mm
+		circum = 715 * math.pi
+
+		distance = angle/360 * circum
+
+		self.car_move(direction, speed, angle)
+
+		return
+
+
 
 
 	def car_off(self):

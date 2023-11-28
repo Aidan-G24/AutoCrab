@@ -9,21 +9,24 @@ if __name__ == "__main__":
 
 	Crab = CarControl(pins)
 	print("init complete")
+	speed = 25
+	distance = 500
 
 	try:
-		time.sleep(5)
+		time.sleep(2)
 		print("Start Move forward")
-		Crab.car_move("forward", 25, 500)
+		Crab.car_move("forward", speed, distance)
 		time.sleep(2)
-		Crab.car_move("left", 25, 500)
+		Crab.car_move("left", speed, distance)
 		time.sleep(2)
-		Crab.car_move("backward", 25, 500)
+		Crab.car_move("backward", speed, distance)
 		time.sleep(2)
-		Crab.car_move("right", 25, 500)
+		Crab.car_move("right", speed, distance)
 		time.sleep(2)
-		# Crab.car_move("clockwise", 75, 10000)
-		# time.sleep(6)
-		# Crab.car_move("counter", 75, 10000)
+		Crab.car_rotate("clockwise", speed, 90)
+		time.sleep(2)
+		Crab.car_rotate("counter", speed, 90)
+		time.sleepd(2)
 		Crab.car_off()
 
 	except KeyboardInterrupt:

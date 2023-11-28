@@ -218,10 +218,6 @@ class CarControl:
 	def car_off(self):
 
 		# turn off all pins
-		self.front_left_servo.angle(0)
-		self.front_right_servo.angle(0)
-		self.back_left_servo.angle(0)
-		self.back_right_servo.angle(0)
 
 		time.sleep(1)
 		

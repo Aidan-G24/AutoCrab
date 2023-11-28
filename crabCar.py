@@ -7,6 +7,29 @@ import math
 import time
 
 
+def calculate_angle(cur_angle, desired_angle):
+
+	diff = desired_angle - cur_angle
+
+	# 0 < diff < 180
+	if diff >=0 and diff <= 180:
+		direction = "counter"
+		angle = diff
+
+	elif diff > 180:
+		direction = "clockwise"
+		angle = 360 - diff
+
+	elif diff >= -180 and diff < 0:
+		direction = "counter"
+		angle = diff
+
+	else:
+		direction = "clockwise"
+		angle = 360 + diff
+
+	return direction, angle
+
 
 if __name__ == "__main__":
 
@@ -28,10 +51,16 @@ if __name__ == "__main__":
 			direct = input("Would you like to travel along the shortest path (y/n)? ")
 
 			if direct == 'y':
-				angle = math.tan(x/y)
+				angle = math.tan(x_num/y_num)
 				distance = math.sqrt(x**2 + y**2)
 
-				printf("TODO")
+				direction, angle = calculate_angle(grid.angle, math.tan(x/y))
+
+				crab.rotate(direction, speed, angle)
+				gird.update_angle(angle, direction)
+
+				crab.car_move("forward", speed, distance)
+
 
 			elif direct == 'n':
 				if x_num == 0:
@@ -43,7 +72,7 @@ if __name__ == "__main__":
 
 				crab.car_move(direction, speed, abs(x_num))
 				grid.update_pos(abs(x_num), direction)
-				
+
 				if y_num == 0:
 					pass
 				elif y_num < 0:

@@ -53,7 +53,7 @@ if __name__ == "__main__":
 			if direct == 'y':
 				distance = math.sqrt(x_num**2 + y_num**2)
 
-				direction, angle = calculate_angle(grid.angle, math.tan(x_num/y_num))
+				direction, angle = calculate_angle(grid.angle, math.atan(x_num/y_num))
 
 				print(f"direction: {direction}, angle: {angle}")
 
@@ -61,7 +61,6 @@ if __name__ == "__main__":
 				grid.update_angle(angle, direction)
 
 				crab.car_move("forward", speed, distance)
-
 
 			elif direct == 'n':
 				if x_num == 0:

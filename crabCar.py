@@ -61,4 +61,4 @@ if __name__ == "__main__":
 				crab.rotate(direction, speed, grid.angle)
 
 	except KeyboardInterrupt:
-		Crab.car_off()
+		crab.car_off()

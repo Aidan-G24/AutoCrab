@@ -55,8 +55,10 @@ if __name__ == "__main__":
 
 				direction, angle = calculate_angle(grid.angle, math.tan(x_num/y_num))
 
+				print(f"direction: {direction}, angle: {angle}")
+
 				crab.rotate(direction, speed, angle)
-				gird.update_angle(angle, direction)
+				grid.update_angle(angle, direction)
 
 				crab.car_move("forward", speed, distance)
 
@@ -82,7 +84,7 @@ if __name__ == "__main__":
 				crab.car_move(direction, speed, abs(y_num))
 				grid.update_pos(abs(y_num), direction)
 
-				print(f"gird.x: {grid.x}, grid.y: {grid.y}")
+				print(f"grid.x: {grid.x}, grid.y: {grid.y}")
 
 			else:
 				print("Invalid input, either input y or n.")

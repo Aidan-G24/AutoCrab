@@ -28,7 +28,7 @@ class Grid:
 			y_inc = math.sin(math.radians(self.angle + 270)) * distance
 
 		else:
-			raise Exception("invalid input direction to Class: Grid; Method: update_pos")
+			raise Exception(f"invalid input direction ***{direction}*** to Class: Grid; Method: update_pos")
 
 		self.x += int(x_inc)
 		self.y += int(y_inc)
@@ -43,7 +43,7 @@ class Grid:
 			angle_inc = angle
 
 		else:
-			raise Exception("invalid input direction to Class: Grid; Method: update_angle")
+			raise Exception(f"invalid input direction ***{direction}***to Class: Grid; Method: update_angle")
 
 
 		self.angle += angle_inc

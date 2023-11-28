@@ -51,10 +51,9 @@ if __name__ == "__main__":
 			direct = input("Would you like to travel along the shortest path (y/n)? ")
 
 			if direct == 'y':
-				angle = math.tan(x_num/y_num)
 				distance = math.sqrt(x_num**2 + y_num**2)
 
-				direction, angle = calculate_angle(grid.angle, math.tan(x/y))
+				direction, angle = calculate_angle(grid.angle, math.tan(x_num/y_num))
 
 				crab.rotate(direction, speed, angle)
 				gird.update_angle(angle, direction)

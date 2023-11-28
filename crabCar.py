@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
 			if direct == 'y':
 				angle = math.tan(x_num/y_num)
-				distance = math.sqrt(x**2 + y**2)
+				distance = math.sqrt(x_num**2 + y_num**2)
 
 				direction, angle = calculate_angle(grid.angle, math.tan(x/y))
 

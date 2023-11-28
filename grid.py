@@ -12,20 +12,20 @@ class Grid:
 	def update_pos(self, distance, direction):
 
 		if direction == "forward":
-			x_inc = math.cos(math.radians(self.car_angle)) * distance
-			y_inc = math.sin(math.radians(self.car_angle)) * distance
+			x_inc = math.cos(math.radians(self.angle)) * distance
+			y_inc = math.sin(math.radians(self.angle)) * distance
 
 		elif direction == "backward":
-			x_inc = math.cos(math.radians(self.car_angle + 180)) * distance
-			y_inc = math.sin(math.radians(self.car_angle + 180)) * distance
+			x_inc = math.cos(math.radians(self.angle + 180)) * distance
+			y_inc = math.sin(math.radians(self.angle + 180)) * distance
 
 		elif direction == "left":
-			x_inc = math.cos(math.radians(self.car_angle + 90)) * distance
-			y_inc = math.sin(math.radians(self.car_angle + 90)) * distance
+			x_inc = math.cos(math.radians(self.angle + 90)) * distance
+			y_inc = math.sin(math.radians(self.angle + 90)) * distance
 
 		elif direction == "right":
-			x_inc = math.cos(math.radians(self.car_angle + 270)) * distance
-			y_inc = math.sin(math.radians(self.car_angle + 270)) * distance
+			x_inc = math.cos(math.radians(self.angle + 270)) * distance
+			y_inc = math.sin(math.radians(self.angle + 270)) * distance
 
 		else:
 			raise Exception("invalid input direction to Class: Grid; Method: update_pos")

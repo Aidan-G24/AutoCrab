@@ -4,6 +4,7 @@ from motorControl import CarControl
 from grid import Grid
 from config import pins
 import math
+import cmath
 import time
 
 
@@ -51,9 +52,12 @@ if __name__ == "__main__":
 			direct = input("Would you like to travel along the shortest path (y/n)? ")
 
 			if direct == 'y':
-				distance = math.sqrt(x_num**2 + y_num**2)
 
-				direction, angle = calculate_angle(grid.angle, math.degrees(math.atan(x_num/y_num)))
+				rect = complex(x_num, y_num)
+				distance, angle = cmath.polar(rect)
+				# distance = math.sqrt(x_num**2 + y_num**2)
+
+				direction, angle = calculate_angle(grid.angle, angle)
 
 				print(f"direction: {direction}, angle: {angle}")
 

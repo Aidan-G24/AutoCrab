@@ -30,8 +30,8 @@ class Grid:
 		else:
 			raise Exception("invalid input direction to Class: Grid; Method: update_pos")
 
-		self.x += x_inc
-		self.y += y_inc
+		self.x += int(x_inc)
+		self.y += int(y_inc)
 
 
 	def update_angle(self, angle, direction):

@@ -22,6 +22,9 @@ if __name__ == "__main__":
 			y_target = input("Enter Target Location Y: ")
 			x_num, y_num = int(x_target), int(y_target)
 
+			x_num -= grid.x
+			y_num -= grid.y
+
 			direct = input("Would you like to travel along the shortest path (y/n)? ")
 
 			if direct == 'y':

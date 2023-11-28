@@ -208,7 +208,7 @@ class CarControl:
 
 		distance = angle/360 * circum
 
-		self.car_move(direction, speed, angle)
+		self.car_move(direction, speed, distance)
 
 		return
 

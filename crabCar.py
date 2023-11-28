@@ -37,6 +37,7 @@ if __name__ == "__main__":
 					direction = "forward"
 
 				crab.car_move(direction, speed, abs(x_num))
+				grid.update_pos(abs(x_num), direction)
 
 				if y_num < 0:
 					direction = "right"
@@ -44,6 +45,7 @@ if __name__ == "__main__":
 					direction = "left"
 				
 				crab.car_move(direction, speed, abs(x_num))
+				grid.update_pos(abs(y_num), direction)
 
 			else:
 				print("Invalid input, either input y or n.")

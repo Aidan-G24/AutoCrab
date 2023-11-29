@@ -25,6 +25,7 @@ try:
         frames = pipeline.wait_for_frames()
         depth = frames.get_depth_frame()
         if not depth: continue
+        count = 0
 
         # Print a simple text-based representation of the image, by breaking it into 10x20 pixel regions and approximating the coverage of pixels within one meter
         coverage = [0]*64
@@ -36,7 +37,7 @@ try:
         
         if count > (480 * 640)*.25:
             print("*****PANIC*****")
-            
+
     exit(0)
 #except rs.error as e:
 #    # Method calls agaisnt librealsense objects may throw exceptions of type pylibrs.error

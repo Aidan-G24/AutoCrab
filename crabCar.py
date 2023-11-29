@@ -59,7 +59,7 @@ if __name__ == "__main__":
 	speed = 25
 
 	try:
-		roomba = Input("Would you like to enter Roomba Mode (y/n)? ")
+		roomba = input("Would you like to enter Roomba Mode (y/n)? ")
 		if roomba == "y":
 			roomba_mode(crab, grid, lidar, speed)
 		elif roomba == "n":

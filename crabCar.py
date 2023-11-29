@@ -33,6 +33,23 @@ def calculate_angle(cur_angle, desired_angle):
 	return direction, angle
 
 
+def roomba_mode(crab, grid, lidar, speed):
+
+	while True:
+
+		actual_pos = crab.car_move("forward", speed, float("infinity"), lidar)
+		grid.update_pos(actual_pos, "forward")
+
+		while lidar.check_distance() == 1:
+			if grid.angle == 315:
+				print("Car is Stuck, shutting down")
+				crab.car_off()
+				exit(0)
+			crab.rotate("clockwise", speed, 45, lidar)
+			grid.update_angle(45, "clockwise")
+
+
+
 if __name__ == "__main__":
 
 	crab = CarControl(pins)
@@ -42,6 +59,14 @@ if __name__ == "__main__":
 	speed = 25
 
 	try:
+		roomba = Input("Would you like to enter Roomba Mode (y/n)? ")
+		if roomba == "y":
+			roomba_mode(crab, grid, lidar, speed)
+		elif roomba == "n":
+			pass
+		else:
+			print("Incorrect input. Shutting down...")
+
 		while True:
 			# ask for user input
 			x_target = input("Enter Target Location X: ")
@@ -63,11 +88,14 @@ if __name__ == "__main__":
 
 				print(f"direction: {direction}, angle: {angle}")
 
-				crab.rotate(direction, speed, angle, lidar)
-				grid.update_angle(angle, direction)
+				if grid.angle != angle:
+					crab.rotate(direction, speed, int(angle), lidar)
+					grid.update_angle(int(angle), direction)
 
 				actual_dist = crab.car_move("forward", speed, distance, lidar)
-				grid.update_pos(actual_dist, "forward")
+				grid.update_pos(int(actual_dist), "forward")
+
+				print(f"grid.x: {grid.x}, grid.y: {grid.y}")
 
 			elif direct == 'n':
 				if x_num == 0:
@@ -78,7 +106,7 @@ if __name__ == "__main__":
 					direction = "forward"
 
 				actual_dist = crab.car_move(direction, speed, abs(x_num), lidar)
-				grid.update_pos(actual_dist, direction)
+				grid.update_pos(int(actual_dist), direction)
 
 				if y_num == 0:
 					pass
@@ -88,7 +116,7 @@ if __name__ == "__main__":
 					direction = "left"
 				
 				actual_dist = crab.car_move(direction, speed, abs(y_num), lidar)
-				grid.update_pos(actual_dist, direction)
+				grid.update_pos(int(actual_dist), direction)
 
 				print(f"grid.x: {grid.x}, grid.y: {grid.y}")
 

@@ -8,20 +8,20 @@ class Lidar:
 	def __init__(self):
 
 		# Create a context object. This object owns the handles to all connected realsense devices
-		pipeline = rs.pipeline()
+		self.pipeline = rs.pipeline()
 
 		# Configure streams
 		config = rs.config()
 		config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
 		
 		# Start streaming
-		pipeline.start(config)
+		self.pipeline.start(config)
 
 
 	def check_distance(self):
 		# return 0 if all clear return 1 if object detected
 
-		frames = pipeline.wait_for_frames()
+		frames = self.pipeline.wait_for_frames()
 		depth = frames.get_depth_frame()
 		if not depth: return 0
 		count = 0

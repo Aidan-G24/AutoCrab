@@ -52,7 +52,7 @@ class Lidar:
 		for y in range(480):
 			for x in range(320):
 				l_dist = depth.get_distance(x, y)
-				r_dit = depth.get_distance(320 + x, y)
+				r_dist = depth.get_distance(320 + x, y)
 				if 0 < l_dist and l_dist < 0.8:
 					l_count += 1
 

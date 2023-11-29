@@ -41,7 +41,7 @@ def roomba_mode(crab, grid, lidar, speed):
 		grid.update_pos(actual_pos, "forward")
 
 		while lidar.check_distance() == 1:
-			if grid.angle == 315:
+			if grid.angle == 45:
 				print("Car is Stuck, shutting down")
 				crab.car_off()
 				exit(0)

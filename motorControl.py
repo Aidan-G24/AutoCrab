@@ -191,7 +191,7 @@ class CarControl:
 		self.back_right_DC.speed(speed)
 
 		while self.pos < distance:
-			if direction == "clockwise" or direction == "counter":
+			if direction != "forward":
 				continue
 			if lidar.check_distance() == 1:
 				print("Obstacle detected in path... stopping motors")

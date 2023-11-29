@@ -39,14 +39,20 @@ def roomba_mode(crab, grid, lidar, speed):
 
 		actual_pos = crab.car_move("forward", speed, float("infinity"), lidar)
 		grid.update_pos(actual_pos, "forward")
+
+		actual_pos = crab.car_move("backward"< speed, 100, lidar)
+		grid.update_pos(actual_pos, "backward")
+
+		direction = lidar.check_left_right()
+
 		inc = 0
 		while lidar.check_distance() == 1:
 			if inc == 360:
 				print("Car is Stuck, shutting down")
 				crab.car_off()
 				exit(0)
-			crab.rotate("clockwise", speed, 45, lidar)
-			grid.update_angle(45, "clockwise")
+			crab.rotate(direction, speed, 45, lidar)
+			grid.update_angle(45, direction)
 			inc += 45
 
 

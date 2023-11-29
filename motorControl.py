@@ -206,7 +206,7 @@ class CarControl:
 		return self.pos
 
 
-	def rotate(self, direction, speed, angle):
+	def rotate(self, direction, speed, angle, lidar):
 
 		# length of car is 715 mm
 		circum = 715 * math.pi
@@ -215,7 +215,7 @@ class CarControl:
 
 		print(f"distance: {distance}")
 
-		self.car_move(direction, speed, distance)
+		self.car_move(direction, speed, distance, lidar)
 
 		return
 

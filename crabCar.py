@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
 				print(f"direction: {direction}, angle: {angle}")
 
-				crab.rotate(direction, speed, angle)
+				crab.rotate(direction, speed, angle, lidar)
 				grid.update_angle(angle, direction)
 
 				actual_dist = crab.car_move("forward", speed, distance, lidar)

@@ -5,7 +5,7 @@ import pyrealsense2.pyrealsense2 as rs
 
 class Lidar:
 
-	def __init__():
+	def __init__(self):
 
 		# Create a context object. This object owns the handles to all connected realsense devices
 		pipeline = rs.pipeline()
@@ -18,7 +18,7 @@ class Lidar:
 		pipeline.start(config)
 
 
-	def check_distance():
+	def check_distance(self):
 		# return 0 if all clear return 1 if object detected
 
 		frames = pipeline.wait_for_frames()

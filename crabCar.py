@@ -35,6 +35,8 @@ def calculate_angle(cur_angle, desired_angle):
 
 def roomba_mode(crab, grid, lidar, speed):
 
+	adjust_angle = 30
+
 	while True:
 
 		actual_pos = crab.car_move("forward", speed, float("infinity"), lidar)
@@ -51,9 +53,9 @@ def roomba_mode(crab, grid, lidar, speed):
 				print("Car is Stuck, shutting down")
 				crab.car_off()
 				exit(0)
-			crab.rotate(direction, speed, 45, lidar)
-			grid.update_angle(45, direction)
-			inc += 45
+			crab.rotate(direction, speed, adjust_angle, lidar)
+			grid.update_angle(adjust_angle, direction)
+			inc += adjust_angle
 
 
 

@@ -32,8 +32,7 @@ try:
             for x in range(640):
                 dist = depth.get_distance(x, y)
                 if 0 < dist and dist < 1:
-                    for i in range(300):
-                        print("*****PANIC*****")
+                    print("*****PANIC*****")
             
     exit(0)
 #except rs.error as e:

@@ -40,7 +40,7 @@ def roomba_mode(crab, grid, lidar, speed):
 		actual_pos = crab.car_move("forward", speed, float("infinity"), lidar)
 		grid.update_pos(actual_pos, "forward")
 
-		actual_pos = crab.car_move("backward"< speed, 100, lidar)
+		actual_pos = crab.car_move("backward", speed, 100, lidar)
 		grid.update_pos(actual_pos, "backward")
 
 		direction = lidar.check_left_right()

@@ -2,6 +2,7 @@
 
 from motorControl import CarControl
 from grid import Grid
+from lidarControl import Lidar
 from config import pins
 import math
 import cmath
@@ -36,6 +37,7 @@ if __name__ == "__main__":
 
 	crab = CarControl(pins)
 	grid = Grid()
+	lidar = Lidar()
 
 	speed = 25
 
@@ -64,8 +66,8 @@ if __name__ == "__main__":
 				crab.rotate(direction, speed, angle)
 				grid.update_angle(angle, direction)
 
-				crab.car_move("forward", speed, distance)
-				grid.update_pos(distance, "forward")
+				actual_dist = crab.car_move("forward", speed, distance, lidar)
+				grid.update_pos(actual_dist, "forward")
 
 			elif direct == 'n':
 				if x_num == 0:
@@ -75,8 +77,8 @@ if __name__ == "__main__":
 				else:
 					direction = "forward"
 
-				crab.car_move(direction, speed, abs(x_num))
-				grid.update_pos(abs(x_num), direction)
+				actual_dist = crab.car_move(direction, speed, abs(x_num), lidar)
+				grid.update_pos(actual_dist, direction)
 
 				if y_num == 0:
 					pass
@@ -85,8 +87,8 @@ if __name__ == "__main__":
 				else:
 					direction = "left"
 				
-				crab.car_move(direction, speed, abs(y_num))
-				grid.update_pos(abs(y_num), direction)
+				actual_dist = crab.car_move(direction, speed, abs(y_num), lidar)
+				grid.update_pos(actual_dist, direction)
 
 				print(f"grid.x: {grid.x}, grid.y: {grid.y}")
 

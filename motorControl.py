@@ -156,7 +156,7 @@ class CarControl:
 		motor_test(self.back_right_DC)
 
 
-	def car_move(self, direction, speed, distance):
+	def car_move(self, direction, speed, distance, lidar):
 
 		# set all of the wheels to the correct orientation
 		if direction == "forward" or direction == "backward":
@@ -191,7 +191,11 @@ class CarControl:
 		self.back_right_DC.speed(speed)
 
 		while self.pos < distance:
-			continue
+			if direction == "clockwise" or direction == "counter":
+				continue
+			if lidar.check_distance() == 1:
+				break
+			
 
 		self.front_left_DC.speed(0)
 		self.front_right_DC.speed(0)
@@ -199,6 +203,7 @@ class CarControl:
 		self.back_right_DC.speed(0)
 
 		print("Successfully reached destination... waiting for next instruction")
+		return self.pos
 
 
 	def rotate(self, direction, speed, angle):
@@ -213,7 +218,6 @@ class CarControl:
 		self.car_move(direction, speed, distance)
 
 		return
-
 
 
 
@@ -257,11 +261,6 @@ class CarControl:
 			self.dir_pin = dir_pin
 			self.pwm_pin = pwm_pin
 			self.pi = pi
-
-			if self.pos1 == "left":
-				self.invert = True
-			else:
-				self.invert = False
 
 			
 		def speed(self, percent):

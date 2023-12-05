@@ -25,9 +25,9 @@ if __name__ == "__main__":
 		time.sleep(2)
 		Crab.car_move("right", speed, distance, lidar)
 		time.sleep(2)
-		Crab.car_rotate("clockwise", speed, 90, lidar)
+		Crab.rotate("clockwise", speed, 180, lidar)
 		time.sleep(2)
-		Crab.car_rotate("counter", speed, 90, lidar)
+		Crab.rotate("counter", speed, 180, lidar)
 		time.sleepd(2)
 		Crab.car_off()
 

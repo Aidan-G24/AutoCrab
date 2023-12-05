@@ -1,13 +1,15 @@
 
 
 from motorControl import CarControl
+from lidarControl import Lidar
 from config import pins
 import time
 
 
 if __name__ == "__main__":
 
-	Crab = CarControl(pins)
+	lidar = Lidar()
+	Crab = CarControl(pins, lidar)
 	print("init complete")
 	speed = 25
 	distance = 500

@@ -28,7 +28,7 @@ if __name__ == "__main__":
 		Crab.rotate("clockwise", speed, 180, lidar)
 		time.sleep(2)
 		Crab.rotate("counter", speed, 180, lidar)
-		time.sleepd(2)
+		time.sleep(2)
 		Crab.car_off()
 
 	except KeyboardInterrupt:
